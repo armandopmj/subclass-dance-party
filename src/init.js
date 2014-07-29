@@ -17,17 +17,50 @@ $(document).ready(function(){
      */
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
 
+
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
 
     // make a dancer with a random position
-
-    var dancer = dancerMakerFunction(
+    var dancer = new dancerMakerFunction(
       $("body").height() * Math.random(),
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
+    window.dancers.push( dancer );
     $('body').append(dancer.$node);
+
+    // Q WTF??
+    $(".dancer").mouseover(function(event){
+     $(this).css('border', '30px solid blue')
+    });
   });
+
+  $(".line").on("click", function(event){
+    for( var i = 0; i < window.dancers.length; i++ ){
+      var dancer = window.dancers[i];
+      // Q: WHY
+      dancer.lineUp.call( dancer, i*100 , 0 );
+    }
+  });
+
+/////DONT UNCOMMENT THIS CODE
+    // $(".dancer").on("click", function(event){
+    //   console.log( $(this) );
+    //  $(this).css('border', '30px solid blue')
+    // });
+
+// define pair
+//   $('.dancer').on('click', function(event){
+//     for(var i = 0; i < window.dancers.length; i += 2){
+//       var dancer1 = window.dancers[i];
+//       var dancer2 = window.dancers[i+1];
+//       dancer1.pair.call(dancer1, dancer2);
+//     }
+//   });
+
+//mouseover
+
+
 });
 
