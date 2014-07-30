@@ -30,13 +30,39 @@ Dancer.prototype.setPosition = function(top, left){
 };
 
 Dancer.prototype.lineUp = function(top, left){
-  // Use css top and left properties to position our <span> tag
-  // where it belongs on the page. See http://api.jquery.com/css/
-  console.log( arguments );
-  console.log(top, left)
   this.setPosition( top, left );
 };
 
-// Dancer.prototype.pair= function(pair){
-//   this.setPosition()
-// }
+Dancer.prototype.pair = function(pair){
+  this.setPosition(pair.top+25, pair.left+25);
+}
+
+Dancer.prototype.followPath = function(path, i){
+  var i = i || 0, path = path, context = this;
+
+  context.setPosition(path[i][1], path[i][0]);
+  if(i>path.length) return;
+  setTimeout(function(){context.followPath(path, ++i)}, 100);
+};
+
+//
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

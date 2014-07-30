@@ -1,5 +1,6 @@
 var SlowDancer = function(top, left, timeBetweenSteps){
   Dancer.call(this, top, left, timeBetweenSteps);
+    this.$node.addClass('coolDancer');
 };
 
 SlowDancer.prototype = Object.create(Dancer.prototype);

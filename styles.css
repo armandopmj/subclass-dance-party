@@ -3,9 +3,6 @@ body, html{
 }
 body{
   margin: 0px;
-  background-image:url(http://www.corporateeventsuk.co.uk/images/illuminateddanceflooring.jpg);
-  background-repeat:no-repeat;
-  background-size: 100%;
   font-size: 18px;
   overflow: hidden;
 }
@@ -20,11 +17,37 @@ body, a:link, a:visited, a:active{
   height:32px;
   background-color: #555;
 }
+
+.floor{
+  height: 100%;
+  background-image:url(http://www.corporateeventsuk.co.uk/images/illuminateddanceflooring.jpg);
+  background-repeat:no-repeat;
+  background-size: 100%;
+}
+
 .title{
   background-color: #777;
 }
 .dancer{
-  border:10px solid red;
-  border-radius:10px;
+  background-repeat:no-repeat;
+  background-size: 100%;
+  border:none;
+  padding: 5em;
   position:absolute;
 }
+.lisa{
+  background-image:url(http://31.media.tumblr.com/6245d24e67694efad3d6226fd05a7ecf/tumblr_mkyb94qEFr1s5jjtzo1_400.gif);
+}
+
+.fastDancer{
+   background-image:url(http://media.giphy.com/media/gAmfboEX3LPZm/giphy.gif);
+}
+
+.blinkyDancer{
+   background-image:url(http://media.giphy.com/media/ujyu46Z7WOW6Q/giphy.gif);
+}
+
+.coolDancer{
+   background-image:url(http://media.giphy.com/media/G5f2piT0yvNyo/giphy.gif);
+}
+

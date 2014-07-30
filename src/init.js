@@ -34,6 +34,14 @@ $(document).ready(function(){
     $(".dancer").mouseover(function(event){
      $(this).css('border', '30px solid blue')
     });
+
+    $('.dancer').on('click', function(event){
+      for(var i = 0; i < window.dancers.length; i += 2){
+        var dancer1 = window.dancers[i];
+        var dancer2 = window.dancers[i+1];
+        dancer1.pair.call(dancer1, dancer2);
+      }
+    });
   });
 
   $(".line").on("click", function(event){
@@ -50,16 +58,31 @@ $(document).ready(function(){
     //  $(this).css('border', '30px solid blue')
     // });
 
-// define pair
-//   $('.dancer').on('click', function(event){
-//     for(var i = 0; i < window.dancers.length; i += 2){
-//       var dancer1 = window.dancers[i];
-//       var dancer2 = window.dancers[i+1];
-//       dancer1.pair.call(dancer1, dancer2);
-//     }
-//   });
+  var path = [];
+  $( ".floor" ).mousedown(function(){
+      path = [];
+      $(".floor").mousemove(function(e){
+        path.push( [event.pageX, event.pageY] );
+      });
+  });
+  $( ".floor" ).mouseup(function(){
+    $(".floor").unbind( "mousemove" );
+    var recurser = function(i){
+      if(i >= window.dancers.length) return;
+      window.dancers[i].followPath(path);
+      setTimeout(function(){ recurser(++i) }, 1000);
+    };
+    recurser(0);
+  });
 
-//mouseover
+
+
+
+
+//Track Path
+
+//On'mousedown' push [top, left] into an array - then continuously set location
+//$('body').on('mousemove', function(event){console.log(event.pageX)})
 
 
 });
